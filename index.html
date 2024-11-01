@@ -1,0 +1,2286 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Лекция 5</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .shower {
+      --slide-ratio: calc(16 / 9);
+    }
+  </style>
+</head>
+
+<body class="shower full">
+  <header class="caption">
+    <h1>Веб-разработка</h1>
+    <p>Лекция 5: CSS_3</p>
+  </header>
+
+  <section class="slide clear">
+    <h2 class="shout shrink">Лекция 5</h2>
+  </section>
+
+  <section class="slide clear">
+    <h2 class="shout">CSS</h2>
+  </section>
+
+  <!-- TODO Стилизация форм -->
+  <section class="slide">
+    <h2>Стилизация форм</h2>
+    <img src="img/form.jpg" width="auto" height="100%" alt="" style="
+      max-height: 380px;
+      margin: 0 auto;
+      display: flex;
+    ">
+  </section>
+
+  <section class="slide">
+    <h2>Стилизация форм</h2>
+    <div class="columns two">
+      <div style="display: flex; flex-direction: column;">
+        <h3 style="
+            display: flex;
+            margin: 0;
+            line-height: 1.2;">Хорошо стилизуются</h3>
+        <ul>
+          <li>&lt;form&gt; </li>
+          <li>&lt;fieldset&gt;</li>
+          <li>&lt;label&gt;</li>
+          <li>&lt;output&gt;</li>
+          <li>&lt;input&gt;</li>
+        </ul>
+      </div>
+      <div style="display: flex; flex-direction: column;">
+        <h3 style="
+            display: flex;
+            margin: 0;
+            line-height: 1.2;">Плохо стилизуются</h3>
+        <ul>
+          <li>&lt;legend&gt;</li>
+          <li>placeholder </li>
+          <li>checkboxes/radiobuttons</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Стилизация форм</h2>
+    <div style="display: flex; flex-direction: column;">
+      <h3 style="
+          display: flex;
+          margin: 0;
+          line-height: 1.2;">Не стилизуются</h3>
+      <ul>
+        <li>элементы управления диапазоном, цветом или датой</li>
+        <li>&lt;select&gt;, &lt;option&gt;</li>
+        <li>&lt;input type=&quot;file&quot;&gt;</li>
+        <li>&lt;optgroup&gt;&lt;datalist&gt;&lt;progress&gt;&lt;meter&gt;</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Стилизация форм</h2>
+    <ol>
+      <li>Базовые стили</li>
+      <li>Позиционирование</li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>&lt;input&gt;</h2>
+    <form style="margin-bottom: 24px;">
+      <fieldset>
+        <label>
+          Поле 1
+          <input type="text" style="
+              padding: 14px;
+              background-color: rgba(127, 255, 212, 0.4);
+              border: 1px solid #000000;
+            ">
+        </label>
+      </fieldset>
+    </form>
+
+    <div class="columns two">
+      <ul>
+        <li><b>padding</b> — внутренние отступы</li>
+        <li><b>margin</b> — внешние отступы</li>
+        <li><b>border</b> — граница</li>
+        <li><b>box-shadow</b> — тень</li>
+      </ul>
+      <ul>
+        <li><b>border-radius</b> — скругления границ</li>
+        <li><b>width</b> — ширина</li>
+        <li><b>font</b> — шрифт</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>box-sizing</h2>
+    <p>Свойство <mark>box-sizing</mark> определяет, как будут вести себя размеры
+      блока</p>
+    <ol>
+      <li><b>content-box</b> — значение по умолчанию. Финальная ширина = ширина
+        + правый внутренний отступ + левый внутренний отступ + правая рамка +
+        левая рамка</li>
+      <li><b>border-box</b> — значение width и height являются финальными
+        размерами элемента. Финальная ширина = ширина
+      </li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>box-sizing</h2>
+    <p>Сброс стилей с помощью универсального селектора</p>
+    <pre>
+      <code>* {</code>
+      <code>  box-sizing: border-box;</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>&lt;legend&gt;</h2>
+    <form>
+      <fieldset style="
+        margin-bottom: 24px;
+        background-color: rgba(127, 255, 212, 0.4);">
+        <legend style="
+            color: #0a1e59;
+          "> Заголовок 1 (legend)</legend>
+        <label>
+          <input type="text">
+          Поле 1
+        </label>
+        <label>
+          <input type="text">
+          Поле 2
+        </label>
+        <label>
+          <input type="text">
+          Поле 3
+        </label>
+      </fieldset>
+      <fieldset style="
+        margin-bottom: 24px;
+        background-color: rgba(127, 255, 212, 0.4);">
+        <legend style="
+          color: #0a1e59;
+        ">Заголовок 2 (legend)</legend>
+        <label>
+          <input type="text">
+          Поле 1
+        </label>
+        <label>
+          <input type="text">
+          Поле 2
+        </label>
+        <label>
+          <input type="text">
+          Поле 3
+        </label>
+      </fieldset>
+    </form>
+  </section>
+
+  <section class="slide">
+    <h2>&lt;textarea&gt;</h2>
+    <form style="margin-bottom: 24px;">
+      <label>
+        <textarea rows="3" cols="33" placeholder="Расскажите о себе..." style="
+          width: 100%;
+          height: 100%;
+          padding: 14px;
+          background-color: rgba(127, 178, 255, 0.4);
+          border: 1px solid #000000;
+          "></textarea>
+      </label>
+    </form>
+
+    <p>CSS-свойство <mark>resize</mark> запрещает или разрешает изменение
+      размеров textarea
+    </p>
+
+    <pre>
+      <code>textarea {</code>
+      <code>  resize: none;</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <!-- TODO Проблемы стилизации элементов форм -->
+  <section class="slide">
+    <h2>Стилизация форм</h2>
+    <div class="columns two">
+      <div style="display: flex; flex-direction: column;">
+        <h3 style="
+            display: flex;
+            margin: 0;
+            line-height: 1.2;">Плохо стилизуются</h3>
+        <ul>
+          <li>&lt;legend&gt;</li>
+          <li>placeholder</li>
+          <li>checkboxes/radiobuttons</li>
+          <li>&lt;input type=&quot;search&quot;&gt;</li>
+        </ul>
+      </div>
+      <div style="display: flex; flex-direction: column;">
+        <h3 style="
+            display: flex;
+            margin: 0;
+            line-height: 1.2;">Не стилизуются</h3>
+        <ul>
+          <li>элементы управления диапазоном, цветом или датой</li>
+          <li>&lt;select&gt;, &lt;option&gt;</li>
+          <li>&lt;input type=&quot;file&quot;&gt;</li>
+          <li>&lt;optgroup&gt;, &lt;datalist&gt;, &lt;progress&gt;,
+            &lt;meter&gt;</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Управление стилем на уровне ОС</h2>
+    <figure>
+      <img src="img/os.png" width="100%" height="100%" alt="" style="
+      max-height: 370px;
+      margin: 0 auto;
+      display: flex;
+      object-fit: contain;
+    ">
+    </figure>
+  </section>
+
+  <section class="slide">
+    <h2>appearance</h2>
+    <p><mark>appearance</mark> - позволяет задавать внешний вид одних элементов
+      другим элементам. Браузер будет отрисовывать элементы с учётом
+      операционной системы и темы оформления.</p>
+    <pre>
+        <code>input {</code>
+        <code>  appearance: none; // для сброса системных стилей</code>
+        <code>}</code>
+      </pre>
+  </section>
+
+  <section class="slide">
+    <h2>radiobuttons и checkboxes</h2>
+    <p>Внешний вид радиокнопок и чекбоксов разнится в зависимости от браузера и
+      ОС
+    </p>
+    <label>
+      <input type="checkbox">
+      чекбокс
+      <pre>
+        <code>&lt;input type=&quot;checkbox&quot;&gt;</code>
+      </pre>
+    </label>
+    <label>
+      <input type="radio">
+      радиокнопка
+      <pre>
+        <code>&lt;input type=&quot;radio&quot;&gt;</code>
+      </pre>
+    </label>
+  </section>
+
+  <section class="slide">
+    <h2>А что делать с "некрасивыми"?</h2>
+    <ul>
+      <li>элементы управления диапазоном, цветом или датой</li>
+      <li>&lt;select&gt;, &lt;option&gt;</li>
+      <li>&lt;input type=&quot;file&quot;&gt;</li>
+      <li>&lt;optgroup&gt;, &lt;datalist&gt;, &lt;progress&gt;,
+        &lt;meter&gt;</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2>А что делать с "некрасивыми"?</h2>
+    <video src="img/this-is-sparta.mp4" autoplay muted preload="none" style="
+        width: 100%;
+        height: auto;
+        max-height: 390px;
+      "></video>
+  </section>
+
+  <section class="slide">
+    <h2>А что делать с "некрасивыми"?</h2>
+    <p>универсальных решений не существует, но современные браузеры постепенно
+      реализуют в стандартах и в своих продуктах новые элементы, возможности и
+      API</p>
+  </section>
+
+  <section class="slide">
+    <h2>Новые (экспериментальные) html-элементы</h2>
+    <ul>
+      <li><b>Popover API</b> — для создания всплывающих окон со всеми функциями
+        без использования JavaScript</li>
+      <li><b>API CSS Anchor Positioning</b> — позволяет естественным образом
+        позиционировать элементы относительно других элементов</li>
+      <li><b>selectmenu</b> — по умолчанию похож на &lt;select&gt;, но может
+        быть
+        оформлен и настроен практически любым способом</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2>Новые (экспериментальные) html-элементы</h2>
+    <ul>
+      <li><a href="https://doka.guide/html/popover/" target="_blank">Popover
+          API</a></li>
+      <li><a
+          href="https://developer.chrome.com/blog/anchor-positioning-api?hl=ru"
+          target="_blank">Представляем API позиционирования привязки CSS</a>
+      </li>
+      <li><a href="https://css-tricks.com/the-selectmenu-element/"
+          target="_blank">Say Hello to selectmenu, a Fully Style-able select
+          Element</a></li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2>Состояния интерактивных элементов</h2>
+    <figure>
+      <img src="img/form-state.jpg" width="100%" height="100%" alt="" style="
+      max-height: 370px;
+      margin: 0 auto;
+      display: flex;
+      object-fit: contain;
+    ">
+      <cite class="small" ><a href="http://www.freepik.com" target="_blank">Designed by stories / Freepik</a></cite>
+    </figure>
+  </section>
+
+  <section class="slide">
+    <h2>Состояния интерактивных элементов</h2>
+
+    <p><mark>Интерактивные элементы</mark> — это элементы, с которыми
+      пользователи могут взаимодействовать</p>
+  </section>
+
+  <section class="slide">
+    <h2>Состояния интерактивных элементов</h2>
+    <ul>
+      <li><b>normal</b> — элемент интерактивен и включен</li>
+      <li><b>hover</b> — пользователь навел курсор на элемент</li>
+      <li><b>focus</b> — пользователь выделил элемент, используя клавиатуру или
+        другой метод ввода</li>
+      <li><b>active</b> — активное или нажатое состояние</li>
+      <li><b>progress/loading</b> — элемент находится в процессе завершения
+        действия</li>
+      <li><b>disabled</b> — элемент в настоящее время не является интерактивным,
+        может быть включен в будущем</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2>Состояния интерактивных элементов</h2>
+    <ol>
+      <li>:hover</li>
+      <li>:focus</li>
+      <li>:active</li>
+      <li>:disabled</li>
+      <li>:focus-visible</li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>Состояния интерактивных элементов</h2>
+    <p><b>Псевдоклассы</b> в CSS — это специальные селекторы, которые уточняют
+      состояние или тип элемента </p>
+
+    <pre>
+        <code>a:hover {</code>
+        <code>  color: red;</code>
+        <code>}</code>
+      </pre>
+  </section>
+
+  <section class="slide">
+    <h2>Основные состояния интерактивных элементов</h2>
+    <p>Состояние <b>:hover</b> срабатывает, когда пользователь наводит курсор на
+      элемент</p>
+
+    <pre>
+        <code>a:hover {</code>
+        <code>  color: red;</code>
+        <code>}</code>
+      </pre>
+  </section>
+
+  <section class="slide">
+    <h2>Основные состояния интерактивных элементов</h2>
+    <p>Состояние <b>:focus</b> срабатывает при клике на элемент или переходе на
+      него с клавиатуры при помощи клавиши tab</p>
+
+    <pre>
+        <code>a:focus {</code>
+        <code>  color: orange;</code>
+        <code>}</code>
+      </pre>
+  </section>
+
+  <section class="slide">
+    <h2>Основные состояния интерактивных элементов</h2>
+    <p>Состояние <b>:active</b> срабатывает, когда пользователь взаимодействует
+      с элементом, например, когда удерживает кнопку мыши на элементе</p>
+
+    <pre>
+        <code>a:active {</code>
+        <code>  color: black;</code>
+        <code>}</code>
+      </pre>
+  </section>
+
+  <section class="slide">
+    <h2>Состояния и доступность сайта</h2>
+    <p>Не все пользователи используют мышь, поэтому важно, чтобы по сайту можно
+      было перемещаться при помощи клавиатуры или других альтернативных
+      устройств</p>
+  </section>
+
+  <section class="slide">
+    <h2>Состояния интерактивных элементов</h2>
+    <div class="columns two">
+      <div style="display: flex; flex-direction: column;">
+        <h3 style="
+            display: flex;
+            margin: 0;
+            line-height: 1.2;">Не правильно (плохо)</h3>
+
+        <pre>
+            <code>a:hover,</code>
+            <code>a:focus,</code>
+            <code>a:active {</code>
+            <code>  ...</code>
+            <code>}</code>
+          </pre>
+      </div>
+      <div style="display: flex; flex-direction: column;">
+        <h3 style="
+            display: flex;
+            margin: 0;
+            line-height: 1.2;">Правильно</h3>
+
+        <pre>
+          <code>a:hover { ... }</code>
+          <code>a:focus { ... }</code>
+          <code>a:active { ... }</code>
+        </pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- TODO Анимации в CSS -->
+  <section class="slide">
+    <h2>Анимации в CSS</h2>
+    <figure>
+      <img src="img/css-anim.jpg" width="100%" height="100%" alt="" style="
+      max-height: 370px;
+      margin: 0 auto;
+      display: flex;
+      object-fit: contain;
+    ">
+      <cite class="small" ><a href="http://www.freepik.com" target="_blank">Designed by stories / Freepik</a></cite>
+    </figure>
+  </section>
+
+  <section class="slide">
+    <h2>@keyframes</h2>
+    <p><b>Анимация</b> — это переход от одного состояния элемента к другому состоянию</p>
+    <p>Чтобы рассказать браузеру, с чего начать и чем закончить анимацию, используется директива <b>@keyframes</b></p>
+  </section>
+
+  <section class="slide">
+    <h2>Анимации в CSS</h2>
+
+    <div class="columns two animations-view-wrap">
+      <div class="animations-view">
+        <div class="circle"></div>
+        <div class="square"></div>
+      </div>
+      <pre style="font-size: 16px;">
+        <code>@keyframes circle-to-square {</code>
+        <code>  <mark>from</mark> {</code>
+        <code>    width: 50px;</code>
+        <code>    height: 50px;</code>
+        <code>    background-color: #4d58f0;</code>
+        <code>  }</code>
+        <code>  <mark>to</mark> {</code>
+        <code>    width: 200px;</code>
+        <code>    height: 200px;</code>
+        <code>    background-color: #309b30;</code>
+        <code>  }</code>
+        <code>}</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Анимации в CSS</h2>
+
+    <div class="columns two animations-view-wrap">
+      <div class="animations-view">
+        <div class="circle"></div>
+        <div class="square"></div>
+      </div>
+      <pre style="font-size: 12px;">
+        <code>@keyframes circle-to-square {</code>
+        <code>  <mark>from</mark> {</code>
+        <code>    width: 50px;</code>
+        <code>    height: 50px;</code>
+        <code>    background-color: #4d58f0;</code>
+        <code>  }</code>
+        <code>  <mark>50%</mark> {</code>
+        <code>    width: 50px;</code>
+        <code>    height: 200px;</code>
+        <code>    background-color: #82309b;</code>
+        <code>  }</code>
+        <code>  <mark>to</mark> {</code>
+        <code>    width: 200px;</code>
+        <code>    height: 200px;</code>
+        <code>    background-color: #309b30;</code>
+        <code>  }</code>
+        <code>}</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>animation-name</h2>
+    <p>Задает <b>имя</b> анимации и присваивает ее элементу, к которому она применяется</p>
+    <div class="columns two animations-view-wrap">
+      <div class="animations-view">
+        <div class="circle"></div>
+        <div class="square"></div>
+      </div>
+      <pre>
+        <code>.circle {</code>
+        <code>  <mark>animation-name</mark>: circle-to-square;</code>
+        <code>}</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>animation-duration</h2>
+    <p>Задает <b>длительность</b> одного цикла анимации</p>
+    <div class="columns two animations-view-wrap">
+      <div class="animations-view">
+        <div class="circle"
+          style="
+          animation-name: circle-to-square;
+          animation-duration: 5s;
+          "
+        ></div>
+        <div class="square"></div>
+      </div>
+      <pre>
+        <code>.circle {</code>
+        <code>  animation-name: circle-to-square;</code>
+        <code>  <mark>animation-duration</mark>: 5s;</code>
+        <code>}</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>animation-iteration-count</h2>
+    <p>Задает <b>количество</b> повторений анимации</p>
+    <pre>
+      <code>.circle {</code>
+      <code>  animation-name: circle-to-square;</code>
+      <code>  animation-duration: 5s;</code>
+      <code>  <mark>animation-iteration-count</mark>: infinite;</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>animation-iteration-count</h2>
+    <p>Задает <b>количество</b> повторений анимации</p>
+    <div class="animations-view">
+      <div class="circle"
+        style="
+        animation-name: circle-to-square;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        "
+      ></div>
+      <div class="square"></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>animation-direction</h2>
+    <p>Сообщает браузеру, должна ли анимация проигрываться в обратном порядке</p>
+
+    <ol style="font-size: 17px;">
+      <li><b>normal</b> — значение по умолчанию, анимация воспроизводится от начала до конца, после чего возвращается к начальному кадру</li>
+      <li><b>reverse</b> — анимация проигрывается в обратном порядке, от последнего ключевого кадра до первого, после чего возвращается к последнему кадру</li>
+      <li><b>alternate</b> —  каждый нечётный повтор (первый, третий, пятый) анимации воспроизводится в прямом порядке, а каждый чётный повтор (второй, четвёртый, шестой) анимации воспроизводится в обратном порядке</li>
+      <li><b>alternate-reverse</b> — аналогично значению alternate, но чётные и нечётные повторы меняются местами</li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>animation-direction</h2>
+    <p>Сообщает браузеру, должна ли анимация проигрываться в обратном порядке</p>
+    <pre>
+      <code>.circle {</code>
+      <code>  animation-name: circle-to-square;</code>
+      <code>  animation-duration: 5s;</code>
+      <code>  animation-iteration-count: infinite;</code>
+      <code>  <mark>animation-direction</mark>: alternate;</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>animation-direction</h2>
+    <p>Сообщает браузеру, должна ли анимация проигрываться в обратном порядке</p>
+    <div class="animations-view">
+      <div class="circle"
+        style="
+        animation-name: circle-to-square;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        "
+      ></div>
+      <div class="square"></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>animation-timing-function</h2>
+    <p style="font-size: 20px;">Устанавливает, согласно какой функции времени должна происходить анимация каждого цикла между ключевыми кадрами <a href="https://doka.guide/css/animation/demos/timing-functions/" target="_blank">(Demo)</a></p>
+
+    <ol style="font-size: 17px;">
+      <li><b>ease</b> — значение по умолчанию. Анимация начинается медленно, затем быстро разгоняется и снова замедляется к концу</li>
+      <li><b>ease-in</b> — начинается медленно и плавно ускоряется к концу</li>
+      <li><b>ease-out</b> — начинается быстро и плавно замедляется к концу</li>
+      <li><b>ease-in-out</b> — начинается и заканчивается медленно, ускоряясь в середине</li>
+      <li><b>cubic-bezier(x1, y1, x2, y2)</b> — временная функция, описывающая тип ускорения в виде кривой Безье</li>
+      <li><b>steps(количество шагов, положение шага)</b> — анимация воспроизводится шагами, резко переходя от одного состояния к другому</li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>animation-timing-function</h2>
+    <pre>
+      <code>.circle {</code>
+      <code>  animation-name: circle-to-square;</code>
+      <code>  animation-duration: 5s;</code>
+      <code>  animation-iteration-count: infinite;</code>
+      <code>  animation-direction: alternate;</code>
+      <code>  <mark>animation-timing-function</mark>: ease-in;</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>cubic-bezier</h2>
+   <p><a href="https://cubic-bezier.com/#.17,.67,.83,.67" target="_blank">cubic-bezier.com</a></p>
+   <img src="img/cb.png" alt="" style="
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      max-height: 300px;
+   ">
+  </section>
+
+  <section class="slide">
+    <h2>animation-timing-function</h2>
+    <p>Устанавливает, согласно какой функции времени должна происходить анимация каждого цикла между ключевыми кадрами</p>
+    <div class="animations-view">
+      <div class="circle"
+        style="
+        animation-name: circle-to-square;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: ease-in;
+        "
+      ></div>
+      <div class="square"></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Анимация для второй фигуры</h2>
+    <pre>
+      <code>animation-name: square-to-circle</code>
+      <code>animation-direction: alternate-reverse;</code>
+    </pre>
+    <div class="animations-view">
+      <div class="circle" style="
+      animation-name: circle-to-square;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: ease-in;
+      "
+      ></div>
+      <div class="square" style="
+      animation-name: square-to-circle;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate-reverse;
+      animation-timing-function: ease-in;
+      "></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>animation-delay</h2>
+    <p>Свойство задаёт <b>задержку</b> воспроизведения анимации</p>
+    <pre>
+      <code>.square {</code>
+      <code>  animation-name: square-to-circle;</code>
+      <code>  animation-duration: 5s;</code>
+      <code>  animation-iteration-count: infinite;</code>
+      <code>  animation-direction: alternate-reverse;</code>
+      <code>  <mark>animation-delay</mark>: 3s;</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>animation-delay</h2>
+    <p>Свойство задаёт <b>задержку</b> воспроизведения анимации</p>
+    <div class="animations-view">
+      <div class="circle"
+        style="
+        animation-name: circle-to-square;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        "
+      ></div>
+      <div class="square" style="
+      animation-name: square-to-circle;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate-reverse;
+      animation-timing-function: ease-in;
+      animation-delay: 3s;
+      "></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>animation-play-state</h2>
+    <p>Свойство, позволяющее ставить анимацию на паузу и запускать снова</p>
+    <ol>
+      <li><b>running</b> — анимация проигрывается (значение по умолчанию)</li>
+      <li><b>paused</b> — анимация ставится на паузу</li>
+    </ol>
+    <pre>
+      <code>.circle:hover, </code>
+      <code>.square:hover {</code>
+      <code>  <mark>animation-play-state</mark>: paused;</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>animation-play-state</h2>
+    <p>Наведите курсор на фигуру,чтобы остановить анимацию</p>
+    <div class="animations-view">
+      <div class="circle"
+        style="
+        animation-name: circle-to-square;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        "
+      ></div>
+      <div class="square" style="
+      animation-name: square-to-circle;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate-reverse;
+      animation-timing-function: ease-in;
+      animation-delay: 3s;
+      "></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>animation-fill-mode</h2>
+    <p>Сообщает браузеру, нужно ли применять стили ключевых кадров до или после проигрывания анимации</p>
+    <ol style="font-size: 18px;">
+      <li><b>none</b> — стили анимации не применяются до и после проигрывания анимации (значение по умолчанию)</li>
+      <li><b>forwards</b> — после окончания анимации элемент сохранит стили последнего ключевого кадра</li>
+      <li><b>backwards</b> — после окончания анимации к элементу будут применены стили первого ключевого кадра</li>
+      <li><b>both</b> — до начала анимации к элементу применяется первый ключевой кадр, а после окончания анимации элемент останется в состоянии последнего ключевого кадра</li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>animation-fill-mode </h2>
+    <pre>
+      <code>animation-fill-mode: forwards;</code>
+    </pre>
+    <div class="animations-view">
+      <div class="circle"
+        style="
+        animation-name: circle-to-square;
+        animation-duration: 5s;
+        animation-direction: alternate;
+        animation-fill-mode: forwards;
+        "
+      ></div>
+      <div class="square" style="
+      animation-name: square-to-circle;
+      animation-duration: 5s;
+      animation-timing-function: ease-in;
+      animation-delay: 3s;
+      animation-fill-mode: forwards;
+      "></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>animation</h2>
+    <p> <mark>animation</mark> — это шорткат, в котором можно за раз указать значения для всех свойств</p>
+    <pre>
+      <code>.circle {</code>
+      <code>  animation: circle-to-square 5s infinite alternate ease-in 3s;</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>Несколько анимаций</h2>
+    <p>К одному элементу можно применить несколько анимаций</p>
+    <pre>
+      <code>@keyframes shake {</code>
+      <code>  from {</code>
+      <code>    transform: translateX(-25px);</code>
+      <code>  }</code>
+      <code>  to {</code>
+      <code>    transform: translateX(25px);</code>
+      <code>  }</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>Несколько анимаций</h2>
+    <pre>
+      <code>.circle {</code>
+      <code>  animation: <mark>circle-to-square</mark> 5s infinite alternate-reverse ease-in 3s <mark class="important">,</mark></code>
+      <code>  <mark>shake</mark> 2s infinite alternate linear;</code>
+      <code>}</code>
+    </pre>
+    <div class="animations-view">
+      <div class="circle"
+        style="
+        animation: circle-to-square 5s infinite alternate ease-in,
+        shake 2s infinite alternate linear;
+        "
+      ></div>
+    </div>
+  </section>
+
+  <!-- TODO transform -->
+  <section class="slide">
+    <h2>transform</h2>
+    <p><b>transform</b> позволяет манипулировать элементами, изменяя их форму, размер и положение</p>
+    <ol>
+      <li><b>none</b> — никакого преобразования не применяется</li>
+      <li><b>rotate(angle)</b> — вращает элемент на заданный угол</li>
+      <li><b>scale(x, y)</b> — масштабирует элемент по осям X и Y</li>
+      <li><b>translate(x, y)</b> — перемещает элемент на заданные координаты</li>
+      <li><b>skew(x, y)</b> — наклоняет элемент на заданные углы по осям X и Y</li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>transform: rotate(angle)</h2>
+    <p><b>rotate(angle)</b> — вращает элемент на заданный угол</p>
+    <div class="columns two">
+      <div style="display: flex; gap: 40px;">
+        <div class="elem"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100px;
+          height: 100px;
+          background-color: rgb(0, 183, 255);
+        "
+      >До</div>
+      <div class="elem"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100px;
+          height: 100px;
+          background-color: rgb(255, 123, 0);
+          transform: rotate(15deg);
+        "
+      >После</div>
+      </div>
+      <pre>
+        <code>.elem {</code>
+        <code>  transform: rotate(45deg);</code>
+        <code>}</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>transform: scale(x, y)</h2>
+    <p><b>scale(x, y)</b> — масштабирует элемент по осям X и Y</p>
+    <div class="columns two">
+      <div style="display: flex; gap: 40px;">
+        <div class="elem"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100px;
+          height: 100px;
+          background-color: rgb(0, 183, 255);
+        "
+      >До</div>
+      <div class="elem"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100px;
+          height: 100px;
+          background-color: rgb(255, 123, 0);
+          transform: scale(1.5);
+        "
+      >После</div>
+      </div>
+      <pre>
+        <code>.elem {</code>
+        <code>  transform: scale(1.5);</code>
+        <code>}</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>transform: skew(x, y)</h2>
+    <p><b>skew(x, y)</b> — позволяет вам наклонять элемент по осям X и Y</p>
+    <div class="columns two">
+      <div style="display: flex; gap: 40px;">
+        <div class="elem"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100px;
+          height: 100px;
+          background-color: rgb(0, 183, 255);
+        "
+      >До</div>
+      <div class="elem"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100px;
+          height: 100px;
+          background-color: rgb(255, 123, 0);
+          transform: skew(20deg, 10deg);
+        "
+      >После</div>
+      </div>
+      <pre>
+        <code>.elem {</code>
+        <code>  transform: skew(20deg, 10deg);</code>
+        <code>}</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>transform: translate(x, y)</h2>
+    <p><b>translate(x, y)</b> — перемещает элемент на заданные координаты</p>
+    <div class="columns two">
+      <div style="display: flex; gap: 40px;">
+        <div class="elem"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100px;
+          height: 100px;
+          background-color: rgb(0, 183, 255);
+        "
+      >До</div>
+      <div class="elem"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100px;
+          height: 100px;
+          background-color: rgb(255, 123, 0);
+          transform: translate(50px, 100px);
+        "
+      >После</div>
+      </div>
+      <pre>
+        <code>.elem {</code>
+        <code>  transform: translate(50px, 100px);</code>
+        <code>}</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>translate*</h2>
+    <ol>
+      <li><b>translateX(X), translateY(Y), translateZ(Z)</b> — сместить элемент вдоль конкретной оси</li>
+      <li><b>translate3d(X, Y, Z)</b> — сместить элемент по всем трём осям</li>
+    </ol>
+    <div class="columns two">
+      <div style="display: flex; gap: 40px;">
+        <div class="elem"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100px;
+          height: 100px;
+          background-color: rgb(0, 183, 255);
+        "
+      >До</div>
+      <div class="elem"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100px;
+          height: 100px;
+          background-color: rgb(255, 123, 0);
+          transform: translateX(50px);
+          transform: translateY(90px);
+        "
+      >После</div>
+      </div>
+      <pre>
+        <code>.elem {</code>
+        <code>  transform: translateX(50px);</code>
+        <code>  transform: translateY(90px);</code>
+        <code>}</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Анимация превращений</h2>
+    <p><mark>transform</mark> анимируется с помощью свойства <b>transition</b> или ключевых кадров (<b>@keyframes</b>).</p>
+    <div class="columns two">
+      <div style="display: flex; gap: 40px;">
+        <div class="elem elem-transform"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 200px;
+          height: 100px;
+          background-color: rgb(0, 183, 255);
+        "
+      ></div>
+      </div>
+      <pre>
+        <code>.elem:hover {</code>
+        <code>  transform: skew(20deg, 20deg);</code>
+        <code>  transition: transform 2s;</code>
+        <code>}</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Анимация превращений</h2>
+    <p><mark>transform</mark> анимируется с помощью свойства <b>transition</b> или ключевых кадров (<b>@keyframes</b>).</p>
+    <pre>
+      <code>.elem { animation: elem-transform 4s infinite alternate; }</code>
+    </pre>
+    <div class="columns two">
+      <div style="display: flex; gap: 40px;">
+        <div class="elem elem-transform"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 200px;
+          height: 100px;
+          background-color: rgb(0, 183, 255);
+          animation: elem-transform 4s infinite alternate;
+        "
+      ></div>
+      </div>
+
+      <pre>
+        <code>@keyframes elem-transform {</code>
+        <code>  0% { transform: scale(1); }</code>
+        <code>  50% { transform: scale(1.2); }</code>
+        <code>  100% { transform: rotate(-30deg); }</code>
+        <code>}</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>transform + transition</h2>
+    <ul>
+      <li>CSS свойство <b>transform</b> позволяет применять 2D и 3D преобразования к элементам</li>
+      <li>с помощью <b>transform</b> можно вращать, масштабировать, перемещать и наклонять элементы</li>
+      <li>вместе с <b>transition</b> можно делать анимации</li>
+    </ul>
+  </section>
+
+  <!-- TODO Как спрятать блок? -->
+  <section class="slide">
+    <h2>Как спрятать блок?</h2>
+    <div class="columns two">
+      <ol>
+        <li>display: none</li>
+        <li>visibility: hidden</li>
+        <li>opacity: 0</li>
+        <li>атрибут <b>hidden</b> для html-элемента</li>
+      </ol>
+      <div style="display: flex; gap: 14px;">
+        <div style="
+              width: 50px;
+              height: 50px;
+              background-color: #b3325d;
+            "></div>
+        <div style="
+            width: 50px;
+            height: 50px;
+            background-color: #0d67b1;
+          "></div>
+        <div style="
+          width: 50px;
+          height: 50px;
+          background-color: #b3325d;
+        "></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Как спрятать блок?</h2>
+    <div class="columns two">
+      <ol>
+        <li><mark>display: none</mark></li>
+        <li>visibility: hidden</li>
+        <li>opacity: 0</li>
+        <li>атрибут <b>hidden</b> для html-элемента</li>
+      </ol>
+      <div style="display: flex; gap: 14px;">
+        <div style="
+              width: 50px;
+              height: 50px;
+              background-color: #b3325d;
+            "></div>
+        <div style="
+            width: 50px;
+            height: 50px;
+            background-color: #0d67b1;
+            display: none;
+          "></div>
+        <div style="
+          width: 50px;
+          height: 50px;
+          background-color: #b3325d;
+        "></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Как спрятать блок?</h2>
+    <div class="columns two">
+      <ol>
+        <li>display: none</li>
+        <li><mark>visibility: hidden</mark></li>
+        <li>opacity: 0</li>
+        <li>атрибут <b>hidden</b> для html-элемента</li>
+      </ol>
+      <div style="display: flex; gap: 14px;">
+        <div style="
+          width: 50px;
+          height: 50px;
+          background-color: #b3325d;
+        "></div>
+        <div style="
+          width: 50px;
+          height: 50px;
+          background-color: #0d67b1;
+          visibility: hidden;
+        "></div>
+        <div style="
+          width: 50px;
+          height: 50px;
+          background-color: #b3325d;
+        "></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Как спрятать блок?</h2>
+    <div class="columns two">
+      <ol>
+        <li>display: none</li>
+        <li>visibility: hidden</li>
+        <li><mark>opacity: 0</mark></li>
+        <li>атрибут <b>hidden</b> для html-элемента</li>
+      </ol>
+      <div style="display: flex; gap: 14px;">
+        <div style="
+          width: 50px;
+          height: 50px;
+          background-color: #b3325d;
+        "></div>
+        <div style="
+          width: 50px;
+          height: 50px;
+          background-color: #0d67b1;
+          opacity: 0;
+        "></div>
+        <div style="
+          width: 50px;
+          height: 50px;
+          background-color: #b3325d;
+        "></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Как спрятать блок?</h2>
+    <div class="columns two">
+      <ol>
+        <li>display: none</li>
+        <li>visibility: hidden</li>
+        <li>opacity: 0</li>
+        <li>атрибут <mark><b>hidden</b></mark> для html-элемента</li>
+      </ol>
+      <div style="display: flex; gap: 14px;">
+        <div style="
+          width: 50px;
+          height: 50px;
+          background-color: #b3325d;
+        "></div>
+        <div style="
+          width: 50px;
+          height: 50px;
+          background-color: #0d67b1;
+        " hidden></div>
+        <div style="
+          width: 50px;
+          height: 50px;
+          background-color: #b3325d;
+        "></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>"visually hidden"</h2>
+
+    <pre>
+      <code>&lt;h2 class=&quot;visually-hidden&quot;&gt;&#1079;&#1072;&#1075;&#1086;&#1083;&#1086;&#1074;&#1086;&#1082;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1075;&#1086; &#1085;&#1077; &#1074;&#1080;&#1076;&#1085;&#1086; &#1085;&#1072; &#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1077;&lt;/h2&gt;</code>
+    </pre>
+
+    <pre style="font-size: 14px;">
+      <code>.visually-hidden {</code>
+      <code>  position: absolute;</code>
+      <code>  width: 1px;</code>
+      <code>  height: 1px;</code>
+      <code>  margin: -1px;</code>
+      <code>  border: 0;</code>
+      <code>  padding: 0;</code>
+      <code>  white-space: nowrap;</code>
+      <code>  clip-path: inset(100%);</code>
+      <code>  clip: rect(0 0 0 0);</code>
+      <code>  overflow: hidden;</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>pointer-events</h2>
+    <p>CSS-свойство <b>pointer-events</b> позволяет контролировать события, при которых элемент может стать объектом события мыши
+     <a href="https://developer.mozilla.org/ru/docs/Web/CSS/pointer-events" target="_blank">MDN</a></p>
+    <ol>
+      <li>pointer-events: auto;</li>
+      <li>pointer-events: none;</li>
+      <li>все остальные значения <b>pointer-events</b> работают только для SVG</li>
+    </ol>
+  </section>
+
+  <!-- TODO Верстка выплывающих элементов -->
+  <section class="slide">
+    <h2>Как показать скрытый элемент?</h2>
+    <div class="columns two">
+      <div style="display: flex; gap: 14px; position: relative;">
+        <div class="target-block" style="
+              width: 150px;
+              height: 150px;
+              background-color: #b3325d;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: #ffffff;
+            ">target</div>
+        <div class="hidden-block" style="
+            width: 150px;
+            height: 150px;
+            background-color: #0d67b1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+          ">hidden</div>
+      </div>
+      <pre>
+        <code>.hidden-block {</code>
+        <code>  <mark>position: absolute;</mark></code>
+        <code>  top: 0;</code>
+        <code>  right: 0;</code>
+        <code>  <mark>opacity: 0;</mark></code>
+        <code>}</code>
+      </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <h2>Как показать скрытый элемент?</h2>
+    <p>1. Верстка невидимого блока с появлением <mark>при наведении</mark></p>
+    <div class="columns two">
+      <div style="display: flex; gap: 14px; position: relative;">
+        <div class="target-block">target</div>
+        <div class="hidden-block hidden-block__hover">hidden</div>
+      </div>
+      <pre>
+        <code>.target-block:hover + .hidden-block {</code>
+        <code>  opacity: 1;</code>
+        <code>  transition: opacity 0.3s ease-in;</code>
+        <code>}</code>
+      </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <h2>Как показать скрытый элемент?</h2>
+    <p>2. Верстка невидимого блока с появлением <mark>в состоянии фокуса</mark></p>
+    <div class="columns two">
+      <div style="display: flex; gap: 14px; position: relative;">
+        <div class="target-buttons">
+          <button class="btn">Кнопка</button>
+          <button class="btn">Кнопка</button>
+          <button class="btn">Кнопка</button>
+          <button class="btn">Кнопка</button>
+          <button class="btn target-button">target</button>
+        </div>
+        <div class="hidden-block hidden-block__focus">hidden</div>
+      </div>
+      <pre>
+        <code>.wrap <mark class="important">:has(button:focus)</mark> + .hidden-block {</code>
+        <code>  opacity: 1;</code>
+        <code>  transition: opacity 0.3s ease-in;</code>
+        <code>}</code>
+      </pre>
+    </div>
+    <p style="text-align: right;"><a href="https://caniuse.com/css-has" target="_blank">can i use :has() CSS relational pseudo-class</a></p>
+  </section>
+  <section class="slide">
+    <h2>Как показать скрытый элемент?</h2>
+    <p>3. Верстка невидимого блока с появлением <mark>при добавлении класса</mark> с помощью JavaScript</p>
+    <div class="columns two">
+      <div style="display: flex; align-items: flex-start; gap: 14px; position: relative;">
+        <button class="btn target-button" data-add-class="target">Добавить класс show</button>
+        <div class="hidden-block hidden-block__with-class" data-add-class="hidden">hidden</div>
+      </div>
+      <pre>
+        <code>.show {</code>
+        <code>  opacity: 1;</code>
+        <code>}</code>
+      </pre>
+    </div>
+
+    <script>
+      let targetBtn = document.querySelector('[data-add-class="target"]');
+      let hiddenBlock = document.querySelector('[data-add-class="hidden"]');
+
+      targetBtn.addEventListener('click', () => {
+        hiddenBlock.classList.toggle('show');
+      });
+    </script>
+  </section>
+  <section class="slide">
+    <h2>Как показать скрытый элемент?</h2>
+    <pre>
+      <code>&lt;script&gt;</code>
+      <code>  let targetBtn = document.querySelector('[data-add-class=&quot;target&quot;]');</code>
+      <code>  let hiddenBlock = document.querySelector('[data-add-class=&quot;hidden&quot;]');</code>
+      <code>  </code>
+      <code>  targetBtn.addEventListener(<mark>'click'</mark>, () =&gt; {</code>
+      <code>    hiddenBlock.classList.toggle('show');</code>
+      <code>  });</code>
+      <code>&lt;/script&gt;</code>
+    </pre>
+  </section>
+
+  <!-- TODO Поток документа -->
+  <section class="slide">
+    <h2>Поток документа</h2>
+    <figure>
+      <img src="img/flow.jpg" width="100%" height="100%" alt="" style="
+      max-height: 370px;
+      margin: 0 auto;
+      display: flex;
+      object-fit: contain;
+    ">
+      <cite class="small" ><a href="http://www.freepik.com" target="_blank">Designed by stories / Freepik</a></cite>
+    </figure>
+    <ol>
+      <li><b>блочные элементы</b> занимают всю ширину документа. Располагаются вертикально</li>
+      <li><b>строчные элементы</b> не переносятся на новые строки; строчные элементы располагаются на той же строке, что и другие и занимают всю ширину родительского элемента, до тех пор, пока не закончится пространство</li>
+    </ol>
+  </section>
+  <section class="slide">
+    <h2>Поток документа</h2>
+    <ol>
+      <li><b>блочные элементы</b> занимают всю ширину документа. Располагаются вертикально</li>
+      <li><b>строчные элементы</b> не переносятся на новые строки; строчные элементы располагаются на той же строке, что и другие и занимают всю ширину родительского элемента, до тех пор, пока не закончится пространство</li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>Поток документа</h2>
+
+    <p><b>поток документа</b> — это система, посредством которой элементы размещаются внутри окна просмотра браузера</p>
+
+    <img src="img/flow-1.png" width="100%" height="100%" alt="" style="
+    max-height: 250px;
+    margin: 0 auto;
+    display: flex;
+    object-fit: contain;
+    ">
+  </section>
+
+  <!-- TODO Координатная сетка -->
+  <section class="slide">
+    <h2>Координатная сетка</h2>
+
+    <p>Система координат в браузере аналогична плоской системе координат из школьной алгебры</p>
+
+    <img src="img/coord.png" alt="" style="
+      width: 100%;
+      max-height: 250px;
+      object-fit: contain;
+    ">
+  </section>
+
+  <section class="slide">
+    <h2>Координатная сетка</h2>
+    <div>
+      <h3>Выделяют две системы координат:</h3>
+      <ol>
+        <li><b>относительно окна браузера</b>. Например, <mark>position: fixed</mark>, отсчёт идёт от верхнего левого угла окна</li>
+        <li><b>относительно документа</b>. Например, <mark>position: absolute</mark> на уровне документа, отсчёт идёт от верхнего левого угла документа</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>top, bottom, left, и right</h2>
+    <p><b>top, bottom, left, и right</b> используются вместе со свойством <b>position</b> чтобы указать куда именно перемещать позиционируемый элемент. Значения координат могут быть отрицательными</p>
+  </section>
+
+  <section class="slide">
+    <h2>z-index</h2>
+    <p><b>z-ось</b> — воображаемая линия, которая направляется от поверхности вашего экрана к вашему лицу </p>
+
+    <img src="img/phone.png" alt="" style="
+      width: auto;
+      height: 100%;
+      object-fit: contain;
+      max-height: 270px;
+    ">
+  </section>
+
+  <section class="slide">
+    <h2>position</h2>
+    <p>Свойство <b>position</b> задаёт способ позиционирования элемента в документе</p>
+    <div class="columns two">
+      <ol>
+        <li><b>static</b></li>
+        <li><b>relative </b></li>
+        <li><b>absolute</b></li>
+        <li><b>fixed</b></li>
+        <li><b>sticky</b></li>
+      </ol>
+      <figure>
+        <img src="img/development.png" width="100%" height="100%" alt="" style="
+        max-height: 300px;
+        margin: 0 auto;
+        display: flex;
+        object-fit: contain;
+      ">
+      </figure>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>position: static;</h2>
+    <p>значение по умолчанию, элемент позиционируется в соответствии с его местом в потоке документа</p>
+    <pre>
+      <code>.element {</code>
+        <code>  position: static;</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>position: relative;</h2>
+    <p>элемент позиционируется относительно своего исходного положения в потоке документа</p>
+    <pre>
+      <code>.element {</code>
+        <code>  position: relative;</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>position: absolute;</h2>
+    <p>элемент позиционируется относительно ближайшего родительского элемента, который имеет позиционирование, отличное от <b>static</b></p>
+    <pre>
+      <code>.element {</code>
+        <code>  position: absolute;</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>position: fixed;</h2>
+    <p>элемент позиционируется относительно окна браузера</p>
+    <pre>
+      <code>.element {</code>
+        <code>  position: fixed;</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>position: sticky;</h2>
+    <p>элемент остаётся на месте при прокрутке страницы, но при этом может быть отодвинут от своей стандартной позиции</p>
+    <pre>
+      <code>.element {</code>
+        <code>  position: sticky;</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <!-- TODO адаптивная графика -->
+  <section class="slide clear">
+    <h2 class="shout">Адаптивная графика</h2>
+  </section>
+
+  <section class="slide">
+    <h2>Пиксель</h2>
+    <ul>
+      <li><b>физический пиксель</b> — пиксель на матрице устройства </li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2>PPI</h2>
+    <p><b>Pixels per Inch</b> — единица измерения плотности экранов</p>
+  </section>
+
+  <section class="slide">
+    <h2>CSS-пиксель</h2>
+    <p>разработчики работают только с CSS-пикселями</p>
+    <p>1 CSS-пиксель = 1/96 дюйма или 0,26 мм или 1 физический пиксель</p>
+  </section>
+
+  <section class="slide">
+    <h2>Ретина-дисплеи</h2>
+    <p><b>Ретиной</b> называют дисплеи Apple с повышенной плотностью
+      пикселей на
+      квадратный дюйм</p>
+  </section>
+  </section>
+
+  <section class="slide">
+    <h2>Особенности вёрстки под ретина-экраны</h2>
+    <ol>
+      <li><b>текст</b>: все тексты на сайте нужно добавлять не
+        изображениями, а
+        с помощью &lt;p&gt;, &lt;h1...h6&gt;, &lt;span&gt; и других
+        тегов.
+        <mark>Исключение — логотипы</mark>
+      </li>
+      <li><b>иконки и декоративные изображения</b>: лучшее решение для
+        иконок и
+        декоративных элементов — использование формата SVG</li>
+      <li><b>контентные и фоновые изображения</b>: обычно используют PNG,
+        JPG,
+        WebP и другие растровые форматы</li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>Особенности вёрстки под ретина-экраны</h2>
+    <p>Графика должна быть подготовлена как минимум <mark>для двух вариантов
+        экранов</mark>. Один для обычных дисплеев, второй, с увеличенным
+      количеством пикселей — для ретины</p>
+  </section>
+
+  <section class="slide">
+    <h2>Фоновые изображения для ретина-экранов</h2>
+    <pre>
+    <code>.element {</code>
+    <code>  background-image: url("../image.png");</code>
+    <code class="mark">  @media (min-resolution: 2dppx) {</code>
+    <code class="mark">    background-image: url("../image@2x.png");</code>
+    <code class="mark">  }</code>
+    <code>}</code>
+  </pre>
+  </section>
+
+  <section class="slide">
+    <h2>&lt;picture&gt;</h2>
+
+    <p>Тег <b>&lt;picture&gt;</b> позволяет разработчикам указать несколько источников изображения для различных устройств и разрешений экрана, чтобы браузер мог выбрать подходящее изображение в зависимости от возможностей устройства пользователя</p>
+  </section>
+
+  <section class="slide">
+    <h2>&lt;picture&gt;</h2>
+
+    <pre>
+      <code> &lt;picture&gt;</code>
+      <code>  &lt;source srcset=&quot;image-small.jpg&quot; media=&quot;(max-width: 768px)&quot;&gt;</code>
+      <code>  &lt;source srcset=&quot;image-medium.jpg&quot; media=&quot;(max-width: 1024px)&quot;&gt;</code>
+      <code>  &lt;source srcset=&quot;image-large.jpg&quot;&gt;</code>
+      <code>  &lt;img src=&quot;image-default.jpg&quot; alt=&quot;Image description&quot;&gt;</code>
+      <code>&lt;/picture&gt;</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>"Ретинизация" контентных изображений </h2>
+
+    <pre>
+      <code>&lt;img</code>
+      <code>  src=&quot;cat.jpg&quot;</code>
+      <code>  alt=&quot;Изображение с котом&quot;</code>
+      <code>  width=&quot;360&quot;</code>
+      <code>  height=&quot;240&quot;</code>
+      <code>  <mark>srcset=&quot;cat@1x.jpg 1x, cat@2x.jpg 2x, cat@3x.jpg 3x&quot;</mark></code>
+      <code>&gt;</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>source</h2>
+
+    <pre>
+      <code>&lt;picture&gt;</code>
+      <code>  &lt;source media=&quot;(min-width: 1200px)&quot; srcset=&quot;img/img-desktop.svg&quot;&gt;</code>
+      <code>  &lt;source media=&quot;(min-width: 768px)&quot; srcset=&quot;img/img-tablet.svg&quot;&gt;</code>
+      <code>&lt;/picture&gt;</code>
+    </pre>
+  </section>
+
+  <!-- TODO Форматы графики -->
+  <section class="slide">
+    <h2>Форматы графики</h2>
+
+    <ol>
+      <li><b>JPG (JPEG)</b> — наиболее оптимальный. Поддерживает 16 млн. цветов. Имеет небольшой размер файла</li>
+      <li><b>PNG</b> — много весит. Поддерживает 16 млн. цветов. Имеет большой размер файла. Поддерживает прозрачность</li>
+      <li><b>GIF</b> — низкое качество. Поддерживает всего 256 цветов. Имеет небольшой размер файла. Поддерживает прозрачность</li>
+      <li><b>WebP</b> — поддерживает 16 млн. цветов. Имеет минимальный размер файла. Поддерживает прозрачность и даже анимацию</li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>WebP</h2>
+    <p><b>WebP</b> объединяет все достоинства форматов JPEG, PNG и GIF: сжатие с потерями и без потерь, поддержку прозрачности и анимации</p>
+    <ul>
+      <li>сжатие изображения без потерь на 26% лучше, чем у PNG</li>
+      <li>сжатие изображения с потерями лучше JPEG на 25-34% при одинаковом индексе структурного сходства</li>
+      <li>поддержка прозрачности без потерь при увеличении размера всего на 22%</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2>AVIF</h2>
+    <p><b>AVIF</b> — свободный формат сжатия с потерями качества, основанный на библиотеке для сжатия кадров AV1</p>
+    <ul>
+      <!-- <li>значительное уменьшение размера файла при сохранении визуального качества изображения</li> -->
+      <li>значительное уменьшение размера файла при сохранении визуального качества изображения</li>
+      <li>поддержка анимированных изображений</li>
+      <li>поддержка прозрачности</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2>Браузерная совместимость</h2>
+    <p><b> WebP и AVIF</b> — имеют неполную поддержку бразерами</p>
+
+    <ol>
+      <li><a href="https://caniuse.com/?search=webp" target="_blank">can i use: webp</a></li>
+      <li><a href="https://caniuse.com/?search=avif" target="_blank">can i use: avif</a></li>
+    </ol>
+  </section>
+  <section class="slide center">
+
+    <figure>
+      <blockquote>
+        <p>VK&nbsp;Видео первым в&nbsp;России пoлучил поддержку AV1</p>
+      </blockquote>
+      <figcaption>5 сентября 2024</figcaption>
+      <cite><a href="https://vk.company/ru/press/releases/11845/" target="_blank">Пресс-релиз</a></cite>
+    </figure>
+  </section>
+
+  <!-- TODO Оптимизация изображений -->
+  <section class="slide">
+    <h2>Оптимизация изображений</h2>
+    <p>это процесс сжатия изображения и настройки параметров его отображения для оптимального использования</p>
+    <ol>
+      <li>повышение производительности</li>
+      <li>SEO-оптимизация</li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>Повышение производительности</h2>
+    <ol>
+      <li>масштабирование</li>
+      <li>сжатие</li>
+      <li>использование CDN</li>
+      <li>выбор подходящего формата</li>
+      <li>использование отзывчивых изображений</li>
+    </ol>
+  </section>
+  <section class="slide">
+    <h2>SEO-оптимизация</h2>
+    <ol>
+      <li>названия файлов изображений</li>
+      <li>карта сайта для изображений</li>
+      <li>индексация изображений</li>
+      <li>атрибут title</li>
+      <li>атрибут alt</li>
+    </ol>
+  </section>
+
+
+  <section class="slide">
+    <h2>Сервисы по оптимизации изображений</h2>
+    <ol>
+      <li><a href="https://imagecompressor.com/ru/" target="_blank">Optimizilla</a></li>
+      <li><a href="https://tinypng.com/" target="_blank">TinyPNG</a></li>
+      <li><a href="https://compressor.io/" target="_blank">Compressor.io</a></li>
+      <li><a href="https://squoosh.app/" target="_blank">Squoosh</a></li>
+    </ol>
+  </section>
+
+  <!-- TODO Векторная графика  -->
+  <section class="slide">
+    <h2>Векторная графика </h2>
+    <p><b>Векторная графика</b> — способ представления графических объектов и изображений (формат описания) в компьютерной графике, основанный на математическом описании элементарных геометрических объектов, обычно называемых примитивами, таких как: точки, линии, сплайны, кривые Безье, круги, окружности, эллипсы, многоугольники</p>
+  </section>
+
+  <section class="slide">
+    <h2>SVG</h2>
+    <p><b>SVG (scalable vector graphics)</b> — масштабируемая векторная графика. Используется для отрисовки:</p>
+    <ol>
+      <li>геометрических фигур и линий</li>
+      <li>логотипов</li>
+      <li>элементов интерфейса на странице</li>
+      <li>простых картинок и иллюстраций</li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>Преимущества векторной графики</h2>
+    <ol>
+      <li>легкость масштабирования</li>
+      <li>небольшой размер файла</li>
+      <li>удобство редактирования</li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>Недостатки векторной графики</h2>
+    <ol>
+      <li>сложность создания</li>
+      <li>трудности совместимости</li>
+      <li>не подходит для фотографий</li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>Подготовка и оптимизация SVG</h2>
+    <p>Перед использованием SVG желательно его оптимизировать. Можно вручную удалить все ненужное или воспользоваться программой по оптимизации SVG. Наиболее известная и полезная программа для обработки SVG это <a href="https://jakearchibald.github.io/svgomg/" target="_blank">SVGOMG</a>. Она удаляет весь не нужный код</p>
+  </section>
+
+  <section class="slide">
+    <h2>Встраивание SVG на страницу</h2>
+
+    <pre>
+      <code>&lt;svg width=&quot;200&quot; height=&quot;200&quot; viewBox=&quot;0 0 100 100&quot;&gt;</code>
+    </pre>
+    <img src="img/svg.png" alt="">
+  </section>
+
+  <section class="slide">
+    <h2>Встраивание SVG на страницу</h2>
+    <p><mark>1. способ</mark></p>
+
+    <p>Самый простой способ добавить SVG на страницу — с помощью элемента &lt;img&gt;, который размещается прямо в HTML-коде</p>
+    <pre>
+      <code>&lt;img src=&quot;icon.svg&quot; alt=&quot;&quot; width=&quot;300px&quot; height=&quot;200px&quot;&gt;</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>Встраивание SVG на страницу</h2>
+    <p><mark>2. способ</mark></p>
+
+    <p>SVG как фоновая картинка в CSS</p>
+    <pre>
+      <code>.img {</code>
+      <code>  background-image: url(icon.svg);</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>Встраивание SVG на страницу</h2>
+    <p><mark>3. способ</mark></p>
+
+    <p>Вставить содержимое SVG-файлов прямо на страницу</p>
+    <pre>
+      <code>&lt;a class=&quot;link&quot; href=&quot;#&quot;&gt;</code>
+      <code>  &lt;svg width=&quot;100&quot; height=&quot;100&quot;&gt;</code>
+      <code>&lt;/a&gt;</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>Встраивание SVG на страницу</h2>
+    <p><mark>4. дополнительные способы</mark></p>
+
+    <ul>
+      <li>с помощью тега &lt;iframe&gt</li>
+      <li>с помощью тега &lt;object&gt;</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2>Зачем нужно SVG</h2>
+    <ul>
+      <li>масштабирование</li>
+      <li>небольшой размер файла</li>
+      <li>программируемость</li>
+      <li>изображения SVG можно создавать, конструировать и редактировать с помощью любого удобного текстового редактора</li>
+      <li>сжатие файлов</li>
+      <li>доступность</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2>Зачем нужно SVG</h2>
+    <ul>
+      <li>производительность</li>
+      <li>фнимация и взаимодействие</li>
+      <li>стилизация</li>
+      <li>гибкость</li>
+      <li>фон SVG по умолчанию прозрачный</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2>Анимация в SVG</h2>
+
+    <p>Есть два основных способа анимации SVG элемента:</p>
+    <div class="columns two">
+      <ol>
+        <li>CSS анимация</li>
+        <li>SMIL анимация, встроенная в SVG</li>
+      </ol>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150" width="300" height="100"><path fill="none" stroke="#cc0000" stroke-dasharray="300 385" stroke-linecap="round" stroke-width="6" d="M275 75c0 31-27 50-50 50-58 0-92-100-150-100-28 0-50 22-50 50s23 50 50 50c58 0 92-100 150-100 24 0 50 19 50 50Z"><animate attributeName="stroke-dashoffset" calcMode="spline" dur="25" keySplines="0 0 1 1" repeatCount="indefinite" values="685;-685"/></path></svg>
+
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>SMIL</h2>
+    <div class="columns two">
+      <ol>
+        <li>сделать то, что не смог CSS</li>
+        <li>иметь более точный контроль над анимацией</li>
+        <li>сделать морфинг контура (анимация атрибута d у тега path)</li>
+        <li>синхронизировать анимации</li>
+        <li>сделать интерактивные анимации</li>
+      </ol>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200"><circle cx="100" cy="100" r="0" fill="none" stroke="#0C803E" stroke-width=".5"><animate attributeName="r" calcMode="spline" dur="5" keySplines="0 .2 .5 1" keyTimes="0;1" repeatCount="indefinite" values="1;80"/><animate attributeName="stroke-width" calcMode="spline" dur="5" keySplines="0 .2 .5 1" keyTimes="0;1" repeatCount="indefinite" values="0;25"/><animate attributeName="stroke-opacity" calcMode="spline" dur="25" keySplines="0 .2 .5 1" keyTimes="0;1" repeatCount="indefinite" values="1;0"/></circle></svg>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Анимация средствами CSS</h2>
+
+    <p>Любой SVG элемент мы можем анимировать так же, как мы это делаем с HTML. Все анимации создаются с помощью <b>@keyframes</b></p>
+  </section>
+
+  <!-- TODO Практика по изображениям -->
+  <section class="slide">
+    <h2>Практика</h2>
+
+    <ol>
+      <li>экспортировать иконки из Figma</li>
+      <li>оптимизировать экспортированные иконки помощью сервиса SVGOMG</li>
+      <li>расставить в разметке SVG пропущенные атрибуты width, height, viewBox</li>
+      <li>заменить определение цвета в заливке и обводке на значение currentColor</li>
+      <li>добавить на страницу декоративные элементы</li>
+      <li>иконки встроить в разметку инлайновым способом</li>
+    </ol>
+  </section>
+
+  <!-- TODO адаптивный веб-дизайн  -->
+  <section class="slide">
+    <h2>Адаптивный веб-дизайн</h2>
+
+    <p>Это подход к веб-дизайну или набор лучших практик, используемых для создания макета, который может реагировать на используемое устройство для просмотра контента</p>
+  </section>
+
+  <!-- TODO Медиавыражения в CSS  -->
+  <section class="slide">
+    <h2>Медиавыражения в CSS</h2>
+
+    <p><b>Медиавыражения</b> позволяют нам проводить серию тестов (например, является ли экран пользователя больше, чем определённая ширина или разрешение) и выборочно применять CSS к стилю страницы соответственно с нуждами пользователя</p>
+
+    <pre>
+      <code>@media [тип устройства] [характеристика устройства] {</code>
+      <code>  /* CSS-правила */</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>Типы устройств</h2>
+    <ol>
+      <li><b>all</b> — медиавыражение применится ко всем устройствам</li>
+      <li><b>print</b> — стили внутри такого медиавыражения применятся при печати на принтерах или экспорте в PDF, в том числе в режиме предпросмотра документа</li>
+      <li><b>screen</b> — для устройств с экранами</li>
+    </ol>
+
+    <pre style="font-size: 16px; margin-top: -26px;">
+      <code>@media print and (orientation: landscape) {</code>
+      <code>  .block {</code>
+      <code>    font-size: 25pt;</code>
+      <code>  }</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>Характеристики устройства</h2>
+    <ol>
+      <li>resolution</li>
+      <li>min-resolution</li>
+      <li>max-resolution</li>
+    </ol>
+
+    <pre style="">
+      <code>@media (max-resolution: 300dpi) {</code>
+      <code>  .block {</code>
+      <code>    font-size: 25pt;</code>
+      <code>  }</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>Характеристики страницы и окна браузера </h2>
+    <ol>
+      <li>width</li>
+      <li>min-width</li>
+      <li>max-width</li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>orientation — ориентация окна браузера</h2>
+    <ol>
+      <li><b>landscape</b> — альбомная, горизонтальная ориентация</li>
+      <li><b>portrait</b> — портретная, вертикальная ориентация</li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>Логические операторы</h2>
+    <p>В медиавыражении может быть перечислено несколько условий через запятую. В таком случае стили применятся для любого из указанных условий</p>
+    <pre>
+      <code>@media (orientation: landscape), (max-width: 960px) {</code>
+      <code>  .text {</code>
+      <code>    color: tomato;</code>
+      <code>  }</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>Логические операторы</h2>
+    <p>Часто в медиавыражениях может использоваться ключевое слово <b>and</b>, реже встречаются ключевые слова <b>not</b> и <b>only</b>. Если мы пишем и тип устройства, и указываем характеристики, то после типа обязательно пишется <b>and</b></p>
+
+    <pre>
+      <code>@media print and (min-width: 320px) {</code>
+      <code>  .text {</code>
+      <code>    text-decoration: underline;</code>
+      <code>  }</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>Логические операторы</h2>
+    <p>Также <b>and</b> пишется между характеристиками</p>
+
+    <pre>
+      <code>@media (min-width: 320px) and (max-width: 640px) {</code>
+      <code>  .text {</code>
+      <code>    text-decoration: underline;</code>
+      <code>  }</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>Синтаксис диапазонов</h2>
+    <p>Новые операторы <mark>&lt;, &gt;, &gt;= &#1080; &lt;=</mark> более интуитивно указывают, например, для каких размеров экрана применять правила из медиавыражения</p>
+
+    <pre>
+      <code>@media (680px <= width >= 1280px) {</code>
+      <code>  .text {</code>
+      <code>    color: red;</code>
+      <code>  }</code>
+      <code>}</code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>Практика</h2>
+    <ol>
+      <li>Создать разметку модального окна учебного проекта</li>
+      <li>Стилизовать модальное окно</li>
+      <li>Разбор модальных окон в тестовых проектах</li>
+      <li>Стилизовать оставшиеся элементы страницы учебного проекта</li>
+      <li>Добавить всю графику</li>
+    </ol>
+  </section>
+
+  <!-- TODO Материалы и ссылки -->
+  <section class="slide">
+    <h2>Материалы и ссылки ч.1/6</h2>
+    <ol>
+      <li>
+        <a href="https://htmlacademy.ru/blog/css/position" target="_blank">Как позиционировать элементы в CSS. Свойство position</a>
+      </li>
+      <li>
+        <a href="https://developer.mozilla.org/ru/docs/Learn/CSS/CSS_layout/Positioning" target="_blank">Позиционирование</a>
+      </li>
+      <li>
+        <a href="https://developer.mozilla.org/ru/docs/Web/CSS/position" target="_blank">position</a>
+      </li>
+      <li>
+        <a href="https://doka.guide/tools/coordinate" target="_blank">Координаты (js)</a>
+      </li>
+      <li>
+        <a href="https://developer.mozilla.org/ru/docs/Learn/CSS/CSS_layout/Normal_Flow" target="_blank">Базовый поток</a>
+      </li>
+      <li>
+        <a href="https://htmlacademy.ru/blog/css/hover-focus-active" target="_blank">События при наведении. :hover, :focus, :active в CSS</a>
+      </li>
+      <li>
+        <a href="https://rachelandrew.co.uk/archives/2016/07/22/the-proposed-box-suppress-property/" target="_blank">Rachel Andrew. The proposed box-suppress property</a>
+      </li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>Материалы и ссылки ч.2/6</h2>
+    <ol>
+      <li>
+        <a href="https://html.spec.whatwg.org/multipage/interaction.html#the-hidden-attribute" target="_blank">The hidden attribute</a>
+      </li>
+      <li>
+        <a href="https://allyjs.io/tutorials/hiding-elements.html" target="_blank">Hiding DOM elements</a>
+      </li>
+      <li>
+        <a href="http://csskarma.com/blog/difference-rolepresentation-aria-hiddentrue/" target="_blank">The Difference Between role=” presentation” and aria-hidden=” true”</a>
+      </li>
+      <li>
+        <a href="https://htmlacademy.ru/blog/css/short-12" target="_blank">Как прятать</a>
+      </li>
+      <li>
+        <a href="https://developer.mozilla.org/ru/docs/Web/CSS/pointer-events" target="_blank">pointer-events</a>
+      </li>
+      <li>
+        <a href="https://htmlacademy.ru/blog/css/transform-demo" target="_blank">Как работает transform в CSS на примерах</a>
+      </li>
+      <li>
+        <a href="https://developer.mozilla.org/ru/docs/Web/CSS/transform" target="_blank">transform</a>
+      </li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>Материалы и ссылки ч.3/6</h2>
+    <ol>
+      <li>
+        <a href="https://developer.mozilla.org/ru/docs/Learn/Forms/Styling_web_forms" target="_blank">Стили HTML-формы</a>
+      </li>
+      <li>
+        <a href="https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/" target="_blank">Styling Cross-Browser Compatible Range Inputs with CSS</a>
+      </li>
+      <li>
+        <a href="https://doka.guide/html/popover/" target="_blank">Popover API</a>
+      </li>
+      <li>
+        <a href="https://developer.chrome.com/blog/anchor-positioning-api?hl=ru" target="_blank">Представляем API позиционирования привязки CSS</a>
+      </li>
+      <li>
+        <a href="https://css-tricks.com/the-selectmenu-element/" target="_blank">Say Hello to selectmenu, a Fully Style-able select Element</a>
+      </li>
+      <li>
+        <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/UI_pseudo-classes" target="_blank">UI pseudo-classes</a>
+      </li>
+      <li>
+        <a href="https://doka.guide/css/appearance/" target="_blank">appearance</a>
+      </li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>Материалы и ссылки ч.4/6</h2>
+    <ol>
+      <li>
+        <a href="https://doka.guide/css/box-sizing/" target="_blank">box-sizing</a>
+      </li>
+      <li>
+        <a href="https://developer.mozilla.org/ru/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images" target="_blank">Адаптивные изображения</a>
+      </li>
+      <li>
+        <a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/picture" target="_blank">Элемент &lt;picture&gt;</a>
+      </li>
+      <li>
+        <a href="https://htmlacademy.ru/blog/html-tags/picture" target="_blank">picture — адаптивное изображение</a>
+      </li>
+      <li>
+        <a href="https://htmlacademy.ru/blog/html/adaptive-srcset" target="_blank">Как создавать адаптивные изображения. Атрибут srcset</a>
+      </li>
+      <li>
+        <a href="https://imagecompressor.com/ru/" target="_blank">Optimizilla</a>
+      </li>
+      <li>
+        <a href="https://tinypng.com/" target="_blank">TinyPNG</a>
+      </li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>Материалы и ссылки ч.5/6</h2>
+    <ol>
+      <li>
+        <a href="https://compressor.io/" target="_blank">Compressor.io</a>
+      </li>
+      <li>
+        <a href="https://squoosh.app/" target="_blank">Squoosh</a>
+      </li>
+      <li>
+        <a href="https://jakearchibald.github.io/svgomg/" target="_blank">SVGOMG</a>
+      </li>
+      <li>
+        <a href="https://htmlacademy.ru/blog/html/short-4" target="_blank">Как правильно вставлять SVG</a>
+      </li>
+      <li>
+        <a href="https://habr.com/ru/articles/450924/" target="_blank">Все об SVG анимации</a>
+      </li>
+      <li>
+        <a href="https://doka.guide/css/animation/" target="_blank">CSS-анимации</a>
+      </li>
+      <li>
+        <a href="https://cubic-bezier.com/#.17,.67,.83,.67" target="_blank">График кривой Безье</a>
+      </li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h2>Материалы и ссылки ч.6/6</h2>
+    <ol>
+      <li>
+        <a href="https://developer.mozilla.org/ru/docs/Learn/CSS/CSS_layout/Responsive_Design" target="_blank">Отзывчивый дизайн</a>
+      </li>
+      <li>
+        <a href="https://alistapart.com/article/responsive-web-design/" target="_blank">Responsive Web Design</a>
+      </li>
+      <li>
+        <a href="https://alistapart.com/article/fluidgrids/" target="_blank">Fluid Grids</a>
+      </li>
+      <li>
+        <a href="https://unstoppablerobotninja.com/entry/fluid-images/" target="_blank">Fluid images</a>
+      </li>
+      <li>
+        <a href="https://developer.mozilla.org/ru/docs/Web/CSS/CSS_media_queries" target="_blank">Media queries</a>
+      </li>
+      <li>
+        <a href="https://doka.guide/css/media/" target="_blank">@media</a>
+      </li>
+    </ol>
+  </section>
+
+  <section class="slide clear">
+    <div class="columns two">
+      <div class="center-block">
+        <h2>Слайды</h2>
+        <img src="img/slides.png" width="200" height="200"
+          alt="Ссылка на Слайды">
+      </div>
+      <div class="center-block">
+        <h2>Яндекс Диск</h2>
+        <img src="img/disk.png" width="200" height="200"
+          alt="Ссылка на Яндекс Диск">
+      </div>
+    </div>
+  </section>
+
+  <div class="progress"></div>
+
+  <script src="shower/shower.js"></script>
+  <!-- Copyright © 2024 Yours Truly, Famous Inc. -->
+
+</body>
+
+</html>
